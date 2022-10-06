@@ -1,13 +1,26 @@
+def is_hashable(x):
+    try:
+        hash(x)
+    except:
+        return False
+    return True
+
+
 przyklady = [
     11,
     3.14,
     "test",
-    ["a", "b"]
+    ["a", "b"],
+    ("a", "b"),
+    {"a", "b"},  # set(["a", "b"]),  # pustego zbioru nie da się utworzyć jako {}, trzeba napisać set()
+    frozenset(["a", "b"]),
+    {123: 1, "b": 2, str: 3},
 ]
 
 for x in przyklady:
     # print(x, type(x), bool(x), repr(type(x)()))
-    print(f"{x} -> {bool(x)}, {type(x).__name__}() == {type(x)()!r} -> {bool(type(x)())}")
+    hashable = is_hashable(x)
+    print(f"{x} -> {bool(x)}, {'hashable' if hashable else 'non-hashable'} {type(x).__name__}() == {type(x)()!r} -> {bool(type(x)())}")
 
 # f-string
 # a = 11
