@@ -10,11 +10,16 @@ przyklady = [
     11,
     3.14,
     "test",
+    b"test",
     ["a", "b"],
     ("a", "b"),
     {"a", "b"},  # set(["a", "b"]),  # pustego zbioru nie da się utworzyć jako {}, trzeba napisać set()
     frozenset(["a", "b"]),
     {123: 1, "b": 2, str: 3},
+    True,
+    None,
+    # int,
+    # is_hashable
 ]
 
 for x in przyklady:
