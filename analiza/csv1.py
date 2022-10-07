@@ -29,19 +29,23 @@ def main(args):
     age_sum = 0
     counter = 0
     with path.open() as f:
-        for line_number, line in enumerate(f):
-            if line_number == 0:
-                continue
-            line = line.strip()  # usuwa białe znaki z początku i końca stringa. rstrip() - tylko z końca
-            # Opcja
-            # if not line or line.startswith('#'):
-            #     continue
-            elements = line.split(", ")
-            if len(elements) != 6:
-                continue
+        with open("output.csv", "w") as output:
+            for line_number, line in enumerate(f):
+                if line_number == 0:
+                    continue
+                line = line.strip()  # usuwa białe znaki z początku i końca stringa. rstrip() - tylko z końca
+                # Opcja
+                # if not line or line.startswith('#'):
+                #     continue
+                elements = line.split(", ")
+                if len(elements) != 6:
+                    continue
 
-            age_sum += float(elements[5])
-            counter += 1
+                # zrzucamy kolumny 1 i 6 do osobnego pliku:
+                output.write(f"{elements[0]}, {elements[5]}\n")
+
+                age_sum += float(elements[5])
+                counter += 1
     print(f"Sredni wiek {age_sum/counter:.2f}")
 
 
