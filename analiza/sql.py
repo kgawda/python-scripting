@@ -26,3 +26,6 @@ with connection:
         #cursor.execute(create_table)
         cursor.execute(save_to_table, (datetime.datetime.now(), 24))
     connection.commit()
+    with connection.cursor() as cursor:
+        cursor.execute(read_form_table)
+        print(cursor.fetchall())
