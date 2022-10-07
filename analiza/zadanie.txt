@@ -1,0 +1,2 @@
+Parsujemy plik:
+https://people.sc.fsu.edu/~jburkardt/data/csv/mlb_players.csv

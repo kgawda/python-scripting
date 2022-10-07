@@ -23,3 +23,6 @@ def main(args):
 if __name__ == '__main__':
     # print(sys.argv)
     print(main(sys.argv[1:]))
+
+# bardziej zaawansowana opcja: bilblioteka argparse (https://docs.python.org/3/library/argparse.html)
+# koljeny krok: biblioteka ConfigArgParse - zmienne srodowiskowe i pliki konfiguracyjne (https://pypi.org/project/ConfigArgParse/)
