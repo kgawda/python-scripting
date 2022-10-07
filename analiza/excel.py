@@ -11,7 +11,18 @@ def main():
     for row in ws.iter_rows(min_row=2):
         print(row[0].value, row[1].value)  # indeksowanie od 0 (bo to zwykly tuple)
         # row[5].value = 1  # można edytować już istniejące komórki
-        ws.cell(row=row[0].row, column=9).value =  row[5].value - row[7].value
+        ws.cell(row=row[0].row, column=9).value = row[5].value - row[7].value
+    wb.save("C:\\Users\\kurs\\Documents\\temp\\dane1-mod.xlsx")  # problem: gubi format daty w pliku wyjsciowym
+    wb.close()
+
+
+def kopiowanie():
+    wb = openpyxl.load_workbook("C:\\Users\\kurs\\Documents\\temp\\dane1.xlsx")
+    ws = wb["Arkusz3"]
+    ws2 = wb.create_sheet(title="Wynik", index=0)
+    for row in ws.iter_rows(min_row=2):
+        for cell in row:
+            ws2.cell(row=cell.row, column=cell.column).value = cell.value
     wb.save("C:\\Users\\kurs\\Documents\\temp\\dane1-mod.xlsx")  # problem: gubi format daty w pliku wyjsciowym
     wb.close()
 
