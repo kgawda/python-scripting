@@ -1,0 +1,8 @@
+Z katalogu `python-scripting`:
+
+```
+pip install pyinstaller
+pyinstaller --onefile --console podstawy\funkcje.py
+```
+
+Plik exe znajduje sie w katalogu `dist`
