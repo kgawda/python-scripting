@@ -46,8 +46,8 @@ def main():
     pathlib.Path("C:/Windows")
 
     # print(charset_normalizer.from_path("example_utf8.txt").best())  # plimk zdekodowany
-    print(charset_normalizer.from_path("example_utf8.txt").encoding)
-    print(charset_normalizer.from_path("example_cp1250.txt").encoding)
+    print(charset_normalizer.from_path("example_utf8.txt").best().encoding)
+    print(charset_normalizer.from_path("example_cp1250.txt").best().encoding)
 
 
 def znajdz_pliki_py():
