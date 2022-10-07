@@ -21,13 +21,30 @@ def main(args):
         print("Given file does not exits")
         exit(1)
 
+    # Liczymy sredni wiek zawodnika
+    # -> pominac pierwsza linijke (enumerate)
+    # -> podzielic linijke na elementy (str.split)
+    # -> pominac linijki ktore nie maja 6 elementow
+
+    age_sum = 0
+    counter = 0
     with path.open() as f:
-        for line in f:
+        for line_number, line in enumerate(f):
+            if line_number == 0:
+                continue
             line = line.strip()  # usuwa białe znaki z początku i końca stringa. rstrip() - tylko z końca
             # Opcja
             # if not line or line.startswith('#'):
             #     continue
-            print(line)
+            elements = line.split(", ")
+            if len(elements) != 6:
+                continue
+
+            age_sum += float(elements[5])
+            counter += 1
+    print(f"Sredni wiek {age_sum/counter:.2f}")
+
+
     # return "Zrobione"
 
 if __name__ == '__main__':
