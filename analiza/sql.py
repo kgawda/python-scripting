@@ -9,7 +9,6 @@ create_table = """CREATE TABLE `temp` (
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
 AUTO_INCREMENT=1 ;"""
-
 connection = pymysql.connect(
     host='54.75.110.104',
     port=3306,
@@ -17,9 +16,12 @@ connection = pymysql.connect(
     password="pythonALX",
     db="db"
 )
-
 save_to_table = "INSERT INTO `temp` (`time`, `temperature`) VALUES (%s, %s)"
 read_form_table = "SELECT `id`, `time`, `temperature` FROM `temp`"
+
+# buowanie zapytań:
+# https://github.com/kayak/pypika
+# https://pypi.org/project/python-sql/
 
 with connection:
     with connection.cursor() as cursor:
@@ -28,4 +30,5 @@ with connection:
     connection.commit()
     with connection.cursor() as cursor:
         cursor.execute(read_form_table)
-        print(cursor.fetchall())
+        for x in cursor.fetchall():
+            print(x)
