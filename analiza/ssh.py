@@ -15,3 +15,4 @@ connection.run('ls -al logs')
 # result.ok
 
 connection.get('/config/logs/openssh/current', local='openssh.log')
+
